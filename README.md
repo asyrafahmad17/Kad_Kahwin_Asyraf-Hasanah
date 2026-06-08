@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jemputan Majlis Kesyukuran & Menyambut Menantu - Asyraf & Hasanah</title>
+    
+    <meta property="og:title" content="Walimatul Urus Asyraf & Hasanah">
+    <meta property="og:description" content="Jemputan ke Majlis Kesyukuran & Menyambut Menantu pada 22 Ogos 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/">
+    <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/thumbnail.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1920">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            --primary-bg: #4a0e17; /* Deep Maroon */
+            --gold-accent: #d4af37; /* Royal Gold */
+            --text-light: #fdfbf7; /* Soft Cream */
+            --text-gold: #f3e5ab; /* Soft Gold */
+            /* Floral SVG Background Pattern (Matching Gold Accent) */
+            --floral-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23d4af37' opacity='0.12'%3E%3Cpath d='M50 0 C55 20, 80 45, 100 50 C80 55, 55 80, 50 100 C45 80, 20 55, 0 50 C20 45, 45 20, 50 0 Z'/%3E%3Cpath d='M50 15 C55 30, 70 45, 85 50 C70 55, 55 70, 50 85 C45 70, 30 55, 15 50 C30 45, 45 30, 50 15 Z' transform='rotate(45 50 50)'/%3E%3Ccircle cx='50' cy='50' r='5'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        body {
+            background-color: #f4ebd0; /* Outer background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Lora', serif;
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* --- Welcome Screen / Envelope Overlay --- */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--primary-bg);
+            background-image: var(--floral-pattern);
+            background-size: 120px 120px; /* ENLARGED */
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+        }
+
+        #welcome-screen.open {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            text-align: center;
+            border: 2px solid var(--gold-accent);
+            padding: 40px;
+            border-radius: 8px;
+            background-color: rgba(74, 14, 23, 0.9); /* Semi-transparent maroon */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 80%;
+            position: relative;
+        }
+
+        /* Corner Flowers for Envelope (ENLARGED) */
+        .welcome-content::before, .welcome-content::after {
+            position: absolute;
+            color: var(--gold-accent);
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        .welcome-content::before { content: '❁'; top: 15px; left: 15px; }
+        .welcome-content::after { content: '❁'; bottom: 15px; right: 15px; }
+
+        .open-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: var(--gold-accent);
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .card-container {
+            background-color: var(--primary-bg);
+            background-image: var(--floral-pattern);
+            background-size: 120px 120px; /* ENLARGED */
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .border-frame {
+            border: 2px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 40px 20px;
+            position: relative;
+            background-color: rgba(74, 14, 23, 0.80); /* Slight tint to make text pop over larger flowers */
+        }
+
+        /* Border Corners */
+        .border-frame::before, .border-frame::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--gold-accent);
+        }
+        .border-frame::before {
+            top: -6px;
+            left: -6px;
+            border-bottom: none;
+            border-right: none;
+        }
+        .border-frame::after {
+            bottom: -6px;
+            right: -6px;
+            border-top: none;
+            border-left: none;
+        }
+
+        /* Floral Corner Accents (ENLARGED) */
+        .corner-flower {
+            position: absolute;
+            color: var(--gold-accent);
+            font-size: 2.4rem;
+            background-color: var(--primary-bg);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .cf-tl { top: -22px; left: -22px; }
+        .cf-tr { top: -22px; right: -22px; }
+        .cf-bl { bottom: -22px; left: -22px; }
+        .cf-br { bottom: -22px; right: -22px; }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-accent);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .bismillah {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .salam {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: var(--text-gold);
+        }
+
+        .parents-name {
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 20px auto;
+            max-width: 85%;
+            color: var(--text-light);
+        }
+
+        .couple-names {
+            margin: 35px 0;
+        }
+
+        .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold-accent);
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .ampersand {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--text-gold);
+            margin: 15px 0;
+        }
+
+        /* Floral Dividers (ENLARGED) */
+        .floral-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto;
+            width: 75%;
+        }
+        .floral-divider .line {
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+        }
+        .floral-divider .flower {
+            color: var(--gold-accent);
+            font-size: 2rem;
+        }
+
+        .event-details {
+            margin-bottom: 30px;
+        }
+
+        .event-details p {
+            margin: 8px 0;
+            font-size: 1.05rem;
+        }
+
+        .event-details i {
+            color: var(--gold-accent);
+            width: 25px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: var(--gold-accent);
+            text-decoration: none;
+            border: 1px solid var(--gold-accent);
+            border-radius: 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-accent);
+            color: var(--primary-bg);
+        }
+
+        .pantun {
+            font-style: italic;
+            color: var(--text-gold);
+            line-height: 1.8;
+            margin: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        .contacts-section {
+            margin-top: 30px;
+        }
+
+        .contacts-title {
+            font-size: 1rem;
+            color: var(--gold-accent);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.9rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            color: var(--gold-accent);
+            font-size: 0.8rem;
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--gold-accent);
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            background-color: #e6c855;
+        }
+
+        .music-btn.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        @media (max-width: 480px) {
+            .name { font-size: 2.8rem; }
+            .parents-name { font-size: 1.1rem; }
+            .border-frame { padding: 30px 15px; }
+            .contacts-grid { grid-template-columns: 1fr; }
+            .music-btn { bottom: 15px; right: 15px; width: 45px; height: 45px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <div style="font-size: 2.5rem; color: var(--gold-accent); margin-bottom: 10px;">❀</div>
+            <h2 style="font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 10px;">WALIMATUL URUS</h2>
+            <div class="name" style="font-size: 2.5rem; margin: 15px 0;">Asyraf & Hasanah</div>
+            <div style="font-style: italic; color: var(--text-gold); margin-bottom: 20px;">22 Ogos 2026</div>
+            <button class="open-btn" onclick="openCard()">
+                <i class="fas fa-envelope-open-text"></i> Buka Kad
+            </button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="lagu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="music-toggle" class="music-btn" onclick="toggleMusic()" aria-label="Toggle Music">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <div class="card-container">
+        <div class="border-frame">
+            
+            <div class="corner-flower cf-tl">❁</div>
+            <div class="corner-flower cf-tr">❁</div>
+            <div class="corner-flower cf-bl">❁</div>
+            <div class="corner-flower cf-br">❁</div>
+            
+            <div style="font-size: 2.5rem; color: var(--gold-accent); margin-bottom: 15px;">❀</div>
+            
+            <h2 class="header-title">MAJLIS KESYUKURAN & MENYAMBUT MENANTU</h2>
+            
+            <div class="bismillah">بِسۡـــــــــمِ ٱللهِ ٱلرَّحۡـمَـٰنِ ٱلرَّحِـــــــيمِ</div>
+            <div class="salam">السلام عليكم ورحمة الله وبركاته</div>
+
+            <div class="intro-text">Dengan penuh kesyukuran kepada Allah SWT, kami:</div>
+            
+            <h3 class="parents-name">HAJI AHMAD BIN HASIM</h3>
+            <div class="ampersand">&</div>
+            <h3 class="parents-name">HAJJAH MAHANI BINTI MOHAMED</h3>
+
+            <div class="intro-text">
+                dengan penuh sukacita menjemput Dato’ / Datin / Tuan / Puan / Encik / Cik & keluarga ke majlis perkahwinan putera kami:
+            </div>
+
+            <div class="couple-names">
+                <div class="name">Mohamad Asyraf</div>
+                <div class="ampersand">dengan pilihan hatinya</div>
+                <div class="name">Hasanah</div>
+            </div>
+
+            <div class="floral-divider">
+                <span class="line"></span>
+                <span class="flower">❀</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="event-details">
+                <p><i class="far fa-calendar-alt"></i> <strong>22 Ogos 2026 (Sabtu)</strong></p>
+                <p><i class="far fa-clock"></i> <strong>8.00 malam – 11.00 malam</strong></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Bangi Golf Resort</strong><br>
+                <span style="font-size: 0.85rem; color: var(--text-gold);">Bangi, Selangor Darul Ehsan</span></p>
+            </div>
+
+            <div class="button-group">
+                <a href="https://maps.google.com/?q=Bangi+Golf+Resort" target="_blank" class="btn">
+                    <i class="fas fa-map-marked-alt"></i> Google Maps
+                </a>
+                <a href="https://waze.com/ul?q=Bangi+Golf+Resort" target="_blank" class="btn">
+                    <i class="fab fa-waze"></i> Waze
+                </a>
+                <a href="https://wa.me/60188740252?text=Assalamualaikum%20Aisyah,%20saya%20ingin%20mengesahkan%20kehadiran%20ke%20majlis%20perkahwinan%20Asyraf%20%26%20Hasanah.%0A%0ANama:%20%0ABilangan%20Hadir:%20" target="_blank" class="btn" style="background-color: var(--gold-accent); color: var(--primary-bg); font-weight: bold;">
+                    <i class="fab fa-whatsapp"></i> RSVP Kehadiran
+                </a>
+            </div>
+
+            <div class="floral-divider">
+                <span class="line"></span>
+                <span class="flower">❀</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="pantun">
+                "Sirih junjung berbalas pantun,<br>
+                Berarak kasih menuju pelaminan;<br>
+                Dengan rasa hormat dan penuh santun,<br>
+                Kami hulurkan undangan ke majlis perkahwinan."
+            </div>
+
+            <div class="contacts-section">
+                <div class="contacts-title">Sebarang pertanyaan sila hubungi:</div>
+                <div class="contacts-grid">
+                  
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> Afif: 011-226 2675</div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> Amal: 014-525 5304</div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> Aisyah: 018-874 0252</div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> Adib: 012-260 1244</div>
+                </div>
+            </div>
+            
+            <div style="font-size: 2.5rem; color: var(--gold-accent); margin-top: 20px;">❁</div>
+
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById('welcome-screen').classList.add('open');
+            
+            var audio = document.getElementById("bg-music");
+            var btn = document.getElementById("music-toggle");
+            var icon = btn.querySelector('i');
+            
+            audio.play().catch(function(error) {
+                console.log("Audio play failed due to browser policies:", error);
+            });
+            icon.classList.remove('fa-music');
+            icon.classList.add('fa-pause');
+            btn.classList.add('playing');
+            
+            setTimeout(function() {
+                document.getElementById('welcome-screen').style.display = 'none';
+            }, 1000);
+        }
+
+        function toggleMusic() {
+            var audio = document.getElementById("bg-music");
+            var btn = document.getElementById("music-toggle");
+            var icon = btn.querySelector('i');
+
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-pause');
+                btn.classList.add('playing');
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-music');
+                btn.classList.remove('playing');
+            }
+        }
+    </script>
+
+</body>
+</html>
